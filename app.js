@@ -13,10 +13,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log(generatePassword(req.body))
-  console.log(req.body)
-
-  res.render('index', { password: generatePassword(req.body) })
+  const options = req.body
+  res.render('index', { password: generatePassword(options), options: options })
 })
 
 app.listen(port, () => {

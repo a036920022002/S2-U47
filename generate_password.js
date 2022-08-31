@@ -29,20 +29,23 @@ function generatePassword(options) {
       return !options.excludeCharacters.includes(character)
     })
   }
+  if (collection.length === 0) {
+    return "The password can't be generate"
+  }
 
   let password = ''
   for (let i = 1; i <= Number(options.length); i++) {
     password += sample(collection)
   }
 
-  console.log(collection)
+  //console.log(collection)
   return password
 
 }
 
 function sample(array) {
   const index = Math.floor(Math.random() * array.length)
-  console.log(index)
+  //console.log(index)
   return array[index]
 }
 
